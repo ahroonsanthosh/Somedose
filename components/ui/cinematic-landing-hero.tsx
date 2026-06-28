@@ -69,7 +69,7 @@ export function SomeDoseHero({
       gsap.set(".text-track", { autoAlpha: 0, y: 60, scale: 0.85, filter: "blur(20px)", rotationX: -20 });
       gsap.set(".text-wave", { autoAlpha: 1, clipPath: "inset(0 100% 0 0)" });
       gsap.set(".main-card", { y: window.innerHeight + 200, autoAlpha: 1 });
-      gsap.set([".card-content-left", ".card-content-right", ".card-gallery-wrap", ".floating-loc-badge"], { autoAlpha: 0 });
+      gsap.set([".card-content-left", ".card-content-right", ".card-gallery-wrap"], { autoAlpha: 0 });
       gsap.set(".cta-wrapper", { autoAlpha: 0, scale: 0.8, filter: "blur(30px)" });
 
       gsap.timeline({ delay: 0.3 })
@@ -85,14 +85,13 @@ export function SomeDoseHero({
         .to(".main-card", { y: 0, ease: "power3.inOut", duration: 1.5 }, 0)
         .to(".main-card", { width: "100%", height: "100%", borderRadius: "0px", ease: "power3.inOut", duration: 1.2 })
         .fromTo(".card-gallery-wrap", { y: 120, autoAlpha: 0, scale: 0.85 }, { y: 0, autoAlpha: 1, scale: 1, ease: "back.out(1.3)", duration: 1.5 }, "-=0.4")
-        .fromTo(".floating-loc-badge", { y: 40, autoAlpha: 0, scale: 0.8, rotationZ: -8 }, { y: 0, autoAlpha: 1, scale: 1, rotationZ: 0, ease: "back.out(2)", duration: 1, stagger: 0.12 }, "-=1.2")
         .fromTo(".card-content-left", { x: -40, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "back.out(1.5)", duration: 1 }, "-=1")
         .fromTo(".card-content-right", { x: 40, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "back.out(1.5)", duration: 1 }, "<")
         .to({}, { duration: 1.2 })
         .set(".hero-text-wrapper", { autoAlpha: 0 })
         .set(".cta-wrapper", { autoAlpha: 1 })
         .to({}, { duration: 0.6 })
-        .to([".card-gallery-wrap", ".floating-loc-badge", ".card-content-left", ".card-content-right"], { scale: 0.92, y: -30, autoAlpha: 0, ease: "power3.in", duration: 0.8, stagger: 0.04 })
+        .to([".card-gallery-wrap", ".card-content-left", ".card-content-right"], { scale: 0.92, y: -30, autoAlpha: 0, ease: "power3.in", duration: 0.8, stagger: 0.04 })
         .to(".main-card", { autoAlpha: 0, ease: "power2.in", duration: 1 }, "pullback")
         .to(".cta-wrapper", { scale: 1, filter: "blur(0px)", ease: "back.out(1.3)", duration: 1.4 }, "pullback");
     }, containerRef);
@@ -161,14 +160,6 @@ export function SomeDoseHero({
                 <div className="absolute bottom-4 left-4 right-4">
                   <p className="text-[#FDFAF6]/90 text-xs uppercase tracking-widest font-semibold">Some Dose Coffee Co.</p>
                   <p className="text-[#5ABFC0] text-[10px] tracking-wide mt-1">Cork, Ireland</p>
-                </div>
-              </div>
-              {/* Floating badge */}
-              <div className="floating-loc-badge dose-badge absolute -top-3 -right-6 lg:-right-12 rounded-xl p-3 flex items-center gap-3">
-                <span className="text-xl" aria-hidden="true">☕</span>
-                <div>
-                  <p className="text-white text-xs font-bold">Roasted Brown</p>
-                  <p className="text-[#5ABFC0]/70 text-[10px]">Rotating beans</p>
                 </div>
               </div>
             </div>
