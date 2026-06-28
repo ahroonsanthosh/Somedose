@@ -27,8 +27,8 @@ export default function HoursSection({ hours }: { hours: Hours }) {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-36 bg-[#FDFAF6] relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 100%, rgba(90,191,192,0.06) 0%, transparent 60%)" }} />
+    <section ref={sectionRef} id="hours" className="teal-glow-section py-24 md:py-36 bg-[#FDFAF6] relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(90,191,192,0.12) 0%, transparent 55%), radial-gradient(ellipse at 50% 100%, rgba(90,191,192,0.10) 0%, transparent 55%)" }} />
 
       <div className="max-w-2xl mx-auto px-6">
         <div className="hours-heading text-center mb-16">

@@ -102,7 +102,7 @@ export function SomeDoseHero({
   return (
     <div ref={containerRef} className={cn("relative w-screen h-screen overflow-hidden flex items-center justify-center bg-[#FDFAF6] font-sans antialiased", className)} style={{ perspective: "1500px" }} {...props}>
       <style dangerouslySetInnerHTML={{ __html: INJECTED_STYLES }} />
-      <DottedSurface className="z-0 opacity-60" />
+      <DottedSurface className="z-[1]" />
       <div className="film-grain" aria-hidden="true" />
       <div className="bg-grid-dose absolute inset-0 z-0 pointer-events-none" aria-hidden="true" />
 

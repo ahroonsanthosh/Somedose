@@ -35,9 +35,8 @@ export default function MenuSection({ categories }: { categories: Category[] }) 
   const activeCategory = categories.find((c) => c.id === active);
 
   return (
-    <section ref={sectionRef} id="menu" className="py-24 md:py-36 bg-[#FDFAF6] relative overflow-hidden">
-      {/* Subtle background wave pattern */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, #5ABFC0 0%, transparent 50%), radial-gradient(circle at 80% 20%, #F2B8C6 0%, transparent 40%)" }} />
+    <section ref={sectionRef} id="menu" className="teal-glow-section py-24 md:py-36 bg-[#FDFAF6] relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(90,191,192,0.09) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(242,184,198,0.07) 0%, transparent 40%)" }} />
 
       <div className="max-w-6xl mx-auto px-6">
         <div className="menu-heading text-center mb-16">

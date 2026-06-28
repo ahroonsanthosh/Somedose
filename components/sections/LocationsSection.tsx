@@ -23,8 +23,9 @@ export default function LocationsSection({ locations }: { locations: Location[] 
   return (
     <section ref={sectionRef} id="locations" className="py-24 md:py-36 bg-[#1B2A5E] relative overflow-hidden">
       {/* Background teal glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#5ABFC0]/08 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-[#F2B8C6]/06 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#5ABFC0]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[400px] bg-[#5ABFC0]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-[#F2B8C6]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 relative">
         <div className="loc-heading text-center mb-16">
