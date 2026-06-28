@@ -92,10 +92,8 @@ export function SomeDoseHero({
         .set(".cta-wrapper", { autoAlpha: 1 })
         .to({}, { duration: 1 })
         .to([".card-gallery-wrap", ".floating-loc-badge", ".card-content-left", ".card-content-right"], { scale: 0.92, y: -30, autoAlpha: 0, ease: "power3.in", duration: 1, stagger: 0.04 })
-        .to(".main-card", { width: isMobile ? "92vw" : "80vw", height: isMobile ? "90vh" : "80vh", borderRadius: isMobile ? "28px" : "36px", ease: "expo.inOut", duration: 1.8 }, "pullback")
-        .to(".cta-wrapper", { scale: 1, filter: "blur(0px)", ease: "expo.inOut", duration: 1.8 }, "pullback")
-        .to(".main-card", { y: -window.innerHeight - 300, ease: "power3.in", duration: 1.5 })
-        .set(".main-card", { autoAlpha: 0 });
+        .to(".main-card", { autoAlpha: 0, ease: "power2.in", duration: 1.2 }, "pullback")
+        .to(".cta-wrapper", { scale: 1, filter: "blur(0px)", ease: "expo.inOut", duration: 1.8 }, "pullback");
     }, containerRef);
     return () => ctx.revert();
   }, []);
