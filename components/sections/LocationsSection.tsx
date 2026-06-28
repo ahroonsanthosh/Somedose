@@ -15,7 +15,7 @@ export default function LocationsSection({ locations }: { locations: Location[] 
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(".loc-heading", { y: 40, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.2, ease: "expo.out", scrollTrigger: { trigger: ".loc-heading", start: "top 85%" } });
-      gsap.fromTo(".loc-card", { y: 60, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.9, stagger: 0.15, ease: "expo.out", scrollTrigger: { trigger: ".loc-cards", start: "top 80%" } });
+      gsap.fromTo(".loc-card", { y: 70, autoAlpha: 0, scale: 0.92 }, { y: 0, autoAlpha: 1, scale: 1, duration: 0.9, stagger: 0.15, ease: "back.out(1.4)", scrollTrigger: { trigger: ".loc-cards", start: "top 80%" } });
     }, sectionRef);
     return () => ctx.revert();
   }, []);

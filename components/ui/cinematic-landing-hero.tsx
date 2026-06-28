@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
+import { DottedSurface } from "@/components/ui/dotted-surface";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -72,28 +73,28 @@ export function SomeDoseHero({
       gsap.set(".cta-wrapper", { autoAlpha: 0, scale: 0.8, filter: "blur(30px)" });
 
       gsap.timeline({ delay: 0.3 })
-        .to(".text-track", { duration: 1.8, autoAlpha: 1, y: 0, scale: 1, filter: "blur(0px)", rotationX: 0, ease: "expo.out" })
-        .to(".text-wave", { duration: 1.4, clipPath: "inset(0 0% 0 0)", ease: "power4.inOut" }, "-=1.0");
+        .to(".text-track", { duration: 1.4, autoAlpha: 1, y: 0, scale: 1, filter: "blur(0px)", rotationX: 0, ease: "back.out(1.4)" })
+        .to(".text-wave", { duration: 1.2, clipPath: "inset(0 0% 0 0)", ease: "power4.inOut" }, "-=0.8");
 
       const scrollTl = gsap.timeline({
-        scrollTrigger: { trigger: containerRef.current, start: "top top", end: "+=6000", pin: true, scrub: 1, anticipatePin: 1 },
+        scrollTrigger: { trigger: containerRef.current, start: "top top", end: "+=3800", pin: true, scrub: 1, anticipatePin: 1 },
       });
 
       scrollTl
-        .to([".hero-text-wrapper", ".bg-grid-dose"], { scale: 1.1, filter: "blur(20px)", opacity: 0.15, ease: "power2.inOut", duration: 2 }, 0)
-        .to(".main-card", { y: 0, ease: "power3.inOut", duration: 2 }, 0)
-        .to(".main-card", { width: "100%", height: "100%", borderRadius: "0px", ease: "power3.inOut", duration: 1.5 })
-        .fromTo(".card-gallery-wrap", { y: 200, autoAlpha: 0, scale: 0.8 }, { y: 0, autoAlpha: 1, scale: 1, ease: "expo.out", duration: 2 }, "-=0.5")
-        .fromTo(".floating-loc-badge", { y: 60, autoAlpha: 0, scale: 0.8, rotationZ: -8 }, { y: 0, autoAlpha: 1, scale: 1, rotationZ: 0, ease: "back.out(1.5)", duration: 1.2, stagger: 0.15 }, "-=1.5")
-        .fromTo(".card-content-left", { x: -40, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "power4.out", duration: 1.2 }, "-=1.2")
-        .fromTo(".card-content-right", { x: 40, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "expo.out", duration: 1.2 }, "<")
-        .to({}, { duration: 2 })
+        .to([".hero-text-wrapper", ".bg-grid-dose"], { scale: 1.1, filter: "blur(20px)", opacity: 0.15, ease: "power2.inOut", duration: 1.5 }, 0)
+        .to(".main-card", { y: 0, ease: "power3.inOut", duration: 1.5 }, 0)
+        .to(".main-card", { width: "100%", height: "100%", borderRadius: "0px", ease: "power3.inOut", duration: 1.2 })
+        .fromTo(".card-gallery-wrap", { y: 120, autoAlpha: 0, scale: 0.85 }, { y: 0, autoAlpha: 1, scale: 1, ease: "back.out(1.3)", duration: 1.5 }, "-=0.4")
+        .fromTo(".floating-loc-badge", { y: 40, autoAlpha: 0, scale: 0.8, rotationZ: -8 }, { y: 0, autoAlpha: 1, scale: 1, rotationZ: 0, ease: "back.out(2)", duration: 1, stagger: 0.12 }, "-=1.2")
+        .fromTo(".card-content-left", { x: -40, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "back.out(1.5)", duration: 1 }, "-=1")
+        .fromTo(".card-content-right", { x: 40, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "back.out(1.5)", duration: 1 }, "<")
+        .to({}, { duration: 1.2 })
         .set(".hero-text-wrapper", { autoAlpha: 0 })
         .set(".cta-wrapper", { autoAlpha: 1 })
-        .to({}, { duration: 1 })
-        .to([".card-gallery-wrap", ".floating-loc-badge", ".card-content-left", ".card-content-right"], { scale: 0.92, y: -30, autoAlpha: 0, ease: "power3.in", duration: 1, stagger: 0.04 })
-        .to(".main-card", { autoAlpha: 0, ease: "power2.in", duration: 1.2 }, "pullback")
-        .to(".cta-wrapper", { scale: 1, filter: "blur(0px)", ease: "expo.inOut", duration: 1.8 }, "pullback");
+        .to({}, { duration: 0.6 })
+        .to([".card-gallery-wrap", ".floating-loc-badge", ".card-content-left", ".card-content-right"], { scale: 0.92, y: -30, autoAlpha: 0, ease: "power3.in", duration: 0.8, stagger: 0.04 })
+        .to(".main-card", { autoAlpha: 0, ease: "power2.in", duration: 1 }, "pullback")
+        .to(".cta-wrapper", { scale: 1, filter: "blur(0px)", ease: "back.out(1.3)", duration: 1.4 }, "pullback");
     }, containerRef);
     return () => ctx.revert();
   }, []);
@@ -101,6 +102,7 @@ export function SomeDoseHero({
   return (
     <div ref={containerRef} className={cn("relative w-screen h-screen overflow-hidden flex items-center justify-center bg-[#FDFAF6] font-sans antialiased", className)} style={{ perspective: "1500px" }} {...props}>
       <style dangerouslySetInnerHTML={{ __html: INJECTED_STYLES }} />
+      <DottedSurface className="z-0 opacity-60" />
       <div className="film-grain" aria-hidden="true" />
       <div className="bg-grid-dose absolute inset-0 z-0 pointer-events-none" aria-hidden="true" />
 
@@ -161,19 +163,12 @@ export function SomeDoseHero({
                   <p className="text-[#5ABFC0] text-[10px] tracking-wide mt-1">Cork, Ireland</p>
                 </div>
               </div>
-              {/* Floating badges */}
+              {/* Floating badge */}
               <div className="floating-loc-badge dose-badge absolute -top-3 -right-6 lg:-right-12 rounded-xl p-3 flex items-center gap-3">
                 <span className="text-xl" aria-hidden="true">☕</span>
                 <div>
                   <p className="text-white text-xs font-bold">Roasted Brown</p>
                   <p className="text-[#5ABFC0]/70 text-[10px]">Rotating beans</p>
-                </div>
-              </div>
-              <div className="floating-loc-badge dose-badge absolute -bottom-3 -left-6 lg:-left-12 rounded-xl p-3 flex items-center gap-3">
-                <span className="text-xl" aria-hidden="true">🥐</span>
-                <div>
-                  <p className="text-white text-xs font-bold">Baked Daily</p>
-                  <p className="text-[#5ABFC0]/70 text-[10px]">In-house pastries</p>
                 </div>
               </div>
             </div>

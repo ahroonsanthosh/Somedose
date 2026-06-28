@@ -22,14 +22,14 @@ export default function MenuSection({ categories }: { categories: Category[] }) 
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(".menu-heading", { y: 40, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.2, ease: "expo.out", scrollTrigger: { trigger: ".menu-heading", start: "top 85%" } });
-      gsap.fromTo(".menu-tab", { y: 20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08, ease: "expo.out", scrollTrigger: { trigger: ".menu-tabs", start: "top 85%" } });
+      gsap.fromTo(".menu-heading", { y: 50, autoAlpha: 0, scale: 0.95 }, { y: 0, autoAlpha: 1, scale: 1, duration: 1, ease: "back.out(1.5)", scrollTrigger: { trigger: ".menu-heading", start: "top 85%" } });
+      gsap.fromTo(".menu-tab", { y: 24, autoAlpha: 0, scale: 0.85 }, { y: 0, autoAlpha: 1, scale: 1, duration: 0.7, stagger: 0.08, ease: "back.out(2)", scrollTrigger: { trigger: ".menu-tabs", start: "top 85%" } });
     }, sectionRef);
     return () => ctx.revert();
   }, []);
 
   useEffect(() => {
-    gsap.fromTo(".menu-item-card", { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.06, ease: "expo.out" });
+    gsap.fromTo(".menu-item-card", { y: 30, autoAlpha: 0, scale: 0.94 }, { y: 0, autoAlpha: 1, scale: 1, duration: 0.55, stagger: 0.06, ease: "back.out(1.8)" });
   }, [active]);
 
   const activeCategory = categories.find((c) => c.id === active);
